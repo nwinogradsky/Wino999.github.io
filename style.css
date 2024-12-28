@@ -196,6 +196,32 @@ footer {
     color: white;
 }
 
+        /* Enhancements for centering and orange accent */
+        .service-card {
+            text-align: center;
+        }
+
+        .highlight {
+            color: orange;
+        }
+
+        .cta-button:hover {
+            background: orange;
+            color: white;
+        }
+
+        #services {
+            text-align: center;
+        }
+
+        .services-grid {
+            justify-items: center;
+        }
+
+        .step-number {
+            color: orange;
+        }
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero h1 {
