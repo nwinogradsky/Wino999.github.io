@@ -6,17 +6,17 @@
     <meta name="description" content="Dashlean - Digital studio specialized in lean startup methodology and high-performance web applications">
     <title>Dashlean | Lean Startup Studio</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 <header>
-    <nav>
-        <div class="logo"><img src="dashlean-logo-white.png" height="40px"></div>
+    <nav id="mainNav">
+        <div class="logo"><img src="dashlean-logo.svg" height="40px" alt="Dashlean Logo"></div>
         <div class="nav-links">
             <a href="#services">Services</a>
             <a href="#process">Process</a>
             <a href="#contact">Contact</a>
         </div>
-
     </nav>
     <div class="hero">
         <h1>Transform your ideas into<br><span class="highlight">digital reality</span></h1>
@@ -31,15 +31,15 @@
         <div class="services-grid">
             <div class="service-card">
                 <h3>MVP Development</h3>
-                <p>Rapid prototyping and validation of your business ideas using lean methodology.</p>
+                <p>Rapid prototyping and validation of your business ideas using lean methodology. We help you launch faster and smarter.</p>
             </div>
             <div class="service-card">
                 <h3>Technical Strategy</h3>
-                <p>Expert guidance on architecture, technology stack, and scalability planning.</p>
+                <p>Expert guidance on architecture, technology stack, and scalability planning. Build with confidence and future-proof your solution.</p>
             </div>
             <div class="service-card">
                 <h3>Agile Development</h3>
-                <p>Iterative development with continuous feedback and improvement cycles.</p>
+                <p>Iterative development with continuous feedback and improvement cycles. Stay flexible and adapt to market needs.</p>
             </div>
         </div>
     </section>
@@ -60,12 +60,12 @@
             <div class="step">
                 <div class="step-number">03</div>
                 <h3>Development</h3>
-                <p>Building your MVP with rapid iterations. We use modern frameworks like React, Angular, or Vue for the frontend, Node.js or Django for the backend, and implement CI/CD pipelines to ensure seamless deployments.</p>
+                <p>Building your MVP with rapid iterations. We use modern frameworks like React, Angular, or Vue for the frontend, Node.js or Django for the backend, and implement CI/CD pipelines.</p>
             </div>
             <div class="step">
                 <div class="step-number">04</div>
                 <h3>Scale</h3>
-                <p>Growing and optimizing your product. We implement advanced analytics, cloud scaling strategies (AWS, Azure, or GCP), and continuous performance monitoring using tools like New Relic and Datadog.</p>
+                <p>Growing and optimizing your product. We implement advanced analytics, cloud scaling strategies, and continuous performance monitoring to ensure sustainable growth.</p>
             </div>
         </div>
     </section>
@@ -80,5 +80,39 @@
 <footer>
     <p>&copy; 2024 Dashlean. All rights reserved.</p>
 </footer>
+
+<script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('mainNav');
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // Animate elements on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.service-card, .step').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all 0.6s ease-out';
+        observer.observe(el);
+    });
+</script>
 </body>
 </html>
