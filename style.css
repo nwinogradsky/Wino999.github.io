@@ -1,213 +1,83 @@
-:root {
-    --primary: #2563eb;
-    --secondary: #1e40af;
-    --accent: #3b82f6;
-    --background: #ffffff;
-    --text: #1f2937;
-    --gray: #6b7280;
-    --light: #f3f4f6;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashlean - Digital studio specialized in lean startup methodology and high-performance web applications">
+    <title>Dashlean | Lean Startup Studio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Dashlean</div>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+        <div class="hero">
+            <h1>Transform Your Ideas Into<br><span class="highlight">Successful Products</span></h1>
+            <p>Lean Startup Studio • Technical Excellence • Rapid Innovation</p>
+            <a href="#contact" class="cta-button">Start Your Project</a>
+        </div>
+    </header>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <main>
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>MVP Development</h3>
+                    <p>Rapid prototyping and validation of your business ideas using lean methodology.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Technical Strategy</h3>
+                    <p>Expert guidance on architecture, technology stack, and scalability planning.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Agile Development</h3>
+                    <p>Iterative development with continuous feedback and improvement cycles.</p>
+                </div>
+            </div>
+        </section>
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
-    color: var(--text);
-    background-color: var(--background);
-}
+        <section id="process">
+            <h2>Our Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>Discovery</h3>
+                    <p>Understanding your vision and defining clear objectives</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>Strategy</h3>
+                    <p>Creating a lean roadmap for successful execution</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>Development</h3>
+                    <p>Building your MVP with rapid iterations</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <h3>Scale</h3>
+                    <p>Growing and optimizing your product</p>
+                </div>
+            </div>
+        </section>
 
-/* Header and Navigation */
-header {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    padding: 2rem 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
+        <section id="contact">
+            <h2>Ready to Start?</h2>
+            <p>Let's discuss how we can help bring your vision to life</p>
+            <a href="mailto:contact@dashlean.com" class="contact-button">contact@dashlean.com</a>
+        </section>
+    </main>
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    margin-left: 2rem;
-    font-weight: 500;
-    transition: opacity 0.3s;
-}
-
-.nav-links a:hover {
-    opacity: 0.8;
-}
-
-/* Hero Section */
-.hero {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 1rem;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-}
-
-.hero p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-.highlight {
-    color: var(--accent);
-}
-
-/* Buttons */
-.cta-button {
-    background: white;
-    color: var(--primary);
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: transform 0.3s;
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-}
-
-/* Services Section */
-#services {
-    padding: 5rem 5%;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.service-card {
-    background: var(--light);
-    padding: 2rem;
-    border-radius: 1rem;
-    transition: transform 0.3s;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Process Section */
-#process {
-    padding: 5rem 5%;
-    background: var(--light);
-}
-
-.process-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.step {
-    text-align: center;
-}
-
-.step-number {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--primary);
-    margin-bottom: 1rem;
-}
-
-/* Contact Section */
-#contact {
-    padding: 5rem 5%;
-    text-align: center;
-}
-
-.contact-button {
-    display: inline-block;
-    background: var(--primary);
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 2rem;
-    transition: background-color 0.3s;
-}
-
-.contact-button:hover {
-    background: var(--secondary);
-}
-
-/* Typography */
-h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2rem;
-    background: var(--text);
-    color: white;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .nav-links {
-        display: none;
-    }
-    
-    .services-grid,
-    .process-steps {
-        grid-template-columns: 1fr;
-    }
-}
+    <footer>
+        <p>&copy; 2024 Dashlean. All rights reserved.</p>
+    </footer>
+</body>
+</html>
