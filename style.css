@@ -109,6 +109,7 @@ nav {
 /* Services Section */
 #services {
     padding: 5rem 5%;
+    text-align: center;
 }
 
 .services-grid {
@@ -116,6 +117,7 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+    justify-items: center;
 }
 
 .service-card {
@@ -127,6 +129,7 @@ nav {
 
 .service-card:hover {
     transform: translateY(-5px);
+    text-align: center;
 }
 
 /* Process Section */
@@ -195,32 +198,6 @@ footer {
     background: var(--text);
     color: white;
 }
-
-        /* Enhancements for centering and orange accent */
-        .service-card {
-            text-align: center;
-        }
-
-        .highlight {
-            color: orange;
-        }
-
-        .cta-button:hover {
-            background: orange;
-            color: white;
-        }
-
-        #services {
-            text-align: center;
-        }
-
-        .services-grid {
-            justify-items: center;
-        }
-
-        .step-number {
-            color: orange;
-        }
 
 /* Responsive Design */
 @media (max-width: 768px) {
