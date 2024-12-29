@@ -3,116 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dashlean - Digital studio specialized in lean startup methodology and high-performance web applications">
     <title>Dashlean | Lean Startup Studio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-<header>
-    <nav id="mainNav">
-        <div class="logo"><img src="dashlean-logo.svg" height="40px" alt="Dashlean Logo"></div>
-        <div class="nav-links">
-            <a href="#services">Services</a>
-            <a href="#process">Process</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-    <div class="hero">
-        <h1>Transform your ideas into<br><span class="highlight">digital reality</span></h1>
-        <p>Lean Startup Studio • Technical Excellence • Rapid Innovation</p>
-        <a href="#contact" class="cta-button">Start your project</a>
+    <div class="min-h-screen">
+        <!-- Hero Section -->
+        <header>
+            <nav>
+                <div class="nav-content">
+                    <div class="logo">
+                        <i data-lucide="rocket" class="icon-orange"></i>
+                        <span>Dashlean</span>
+                    </div>
+                    <div class="nav-links">
+                        <a href="#services">Services</a>
+                        <a href="#approach">Approach</a>
+                        <a href="#frameworks">Frameworks</a>
+                    </div>
+                    <button class="btn-primary">Contact Us</button>
+                </div>
+            </nav>
+
+            <div class="hero">
+                <h1>Transform your ideas into<br><span class="text-orange">digital reality</span></h1>
+                <p>Lean Startup Studio • Technical Excellence • Rapid Innovation</p>
+                <button class="btn-primary">
+                    Start your project
+                    <i data-lucide="arrow-right"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Services Section -->
+        <section id="services" class="section-white">
+            <h2>Our Services</h2>
+            <div class="grid-3">
+                <div class="card animate-on-scroll">
+                    <i data-lucide="code-2" class="icon-orange"></i>
+                    <h3>MVP Development</h3>
+                    <p>Rapid prototyping and validation of your business ideas using lean methodology.</p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <i data-lucide="target" class="icon-orange"></i>
+                    <h3>Technical Strategy</h3>
+                    <p>Expert guidance on architecture, technology stack, and scalability planning.</p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <i data-lucide="settings" class="icon-orange"></i>
+                    <h3>Agile Development</h3>
+                    <p>Iterative development with continuous feedback and improvement cycles.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lean Approach Section -->
+        <section id="approach" class="section-gradient">
+            <h2>Our Lean Approach</h2>
+            <div class="grid-3">
+                <div class="card-glass animate-on-scroll">
+                    <i data-lucide="timer" class="icon-large icon-orange"></i>
+                    <h3>Optimized Budget</h3>
+                    <p>Solutions tailored to your resources with maximized ROI</p>
+                </div>
+                <div class="card-glass animate-on-scroll">
+                    <i data-lucide="rocket" class="icon-large icon-orange"></i>
+                    <h3>Rapid Execution</h3>
+                    <p>Agile development adapted to your urgency level</p>
+                </div>
+                <div class="card-glass animate-on-scroll">
+                    <i data-lucide="target" class="icon-large icon-orange"></i>
+                    <h3>Custom-Made</h3>
+                    <p>Applications perfectly aligned with your actual needs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frameworks Section -->
+        <section id="frameworks" class="section-white">
+            <h2>Our Development Frameworks</h2>
+            <div class="grid-4">
+                <div class="numbered-card animate-on-scroll">
+                    <div class="number">01</div>
+                    <h3>Discovery Framework</h3>
+                    <p>Understanding your vision through stakeholder interviews and market analysis</p>
+                </div>
+                <div class="numbered-card animate-on-scroll">
+                    <div class="number">02</div>
+                    <h3>Strategy Framework</h3>
+                    <p>Creating lean roadmaps with MoSCoW prioritization and architecture planning</p>
+                </div>
+                <div class="numbered-card animate-on-scroll">
+                    <div class="number">03</div>
+                    <h3>Development Framework</h3>
+                    <p>Building with modern tech stacks and automated CI/CD pipelines</p>
+                </div>
+                <div class="numbered-card animate-on-scroll">
+                    <div class="number">04</div>
+                    <h3>Scaling Framework</h3>
+                    <p>Implementing analytics and cloud strategies for sustainable growth</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section-orange">
+            <h2>Ready to Start?</h2>
+            <p>Let's discuss how we can help bring your vision to life</p>
+            <button class="btn-white">Contact Us</button>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Dashlean. All rights reserved.</p>
+        </footer>
     </div>
-</header>
 
-<main>
-    <section id="services">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>MVP Development</h3>
-                <p>Rapid prototyping and validation of your business ideas using lean methodology. We help you launch faster and smarter.</p>
-            </div>
-            <div class="service-card">
-                <h3>Technical Strategy</h3>
-                <p>Expert guidance on architecture, technology stack, and scalability planning. Build with confidence and future-proof your solution.</p>
-            </div>
-            <div class="service-card">
-                <h3>Agile Development</h3>
-                <p>Iterative development with continuous feedback and improvement cycles. Stay flexible and adapt to market needs.</p>
-            </div>
-        </div>
-    </section>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
 
-    <section id="process">
-        <h2>Our Process</h2>
-        <div class="process-steps">
-            <div class="step">
-                <div class="step-number">01</div>
-                <h3>Discovery</h3>
-                <p>Understanding your vision and defining clear objectives. We conduct stakeholder interviews, analyze market opportunities, and create a problem-solution alignment document.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">02</div>
-                <h3>Strategy</h3>
-                <p>Creating a lean roadmap for successful execution. This includes wireframing user flows, prioritizing features using MoSCoW methodology, and defining a scalable architecture strategy.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">03</div>
-                <h3>Development</h3>
-                <p>Building your MVP with rapid iterations. We use modern frameworks like React, Angular, or Vue for the frontend, Node.js or Django for the backend, and implement CI/CD pipelines.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">04</div>
-                <h3>Scale</h3>
-                <p>Growing and optimizing your product. We implement advanced analytics, cloud scaling strategies, and continuous performance monitoring to ensure sustainable growth.</p>
-            </div>
-        </div>
-    </section>
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
 
-    <section id="contact">
-        <h2>Ready to Start?</h2>
-        <p>Let's discuss how we can help bring your vision to life</p>
-        <a href="mailto:contact@dashlean.com" class="contact-button">contact@dashlean.com</a>
-    </section>
-</main>
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
 
-<footer>
-    <p>&copy; 2024 Dashlean. All rights reserved.</p>
-</footer>
-
-<script>
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        const nav = document.getElementById('mainNav');
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
-
-    // Animate elements on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
             }
         });
-    }, observerOptions);
-
-    document.querySelectorAll('.service-card, .step').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all 0.6s ease-out';
-        observer.observe(el);
-    });
-</script>
+    </script>
 </body>
 </html>
