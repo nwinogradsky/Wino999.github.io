@@ -71,6 +71,11 @@ section {
 
 .section-orange h2 {
     color: white;
+    margin-bottom: 15px;
+}
+
+.section-orange p {
+    margin-bottom: 20px;
 }
 
 /* Navigation */
