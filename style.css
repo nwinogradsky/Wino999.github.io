@@ -57,6 +57,11 @@ h3 {
     margin-bottom: 0;
 }
 
+.skyrocket h3 {
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
 .min-h-screen {
     min-height: 100vh;
 }
