@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
 /* Base styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
 }
 
 html, body {
@@ -16,7 +16,7 @@ html, body {
 }
 
 body {
-    color: #333;
+    color: #555555; /* Texte plus grisé comme dans le document */
     font-size: 16px;
     line-height: 1.6;
     position: relative;
@@ -67,7 +67,7 @@ body {
 
 /* Content container */
 .content {
-    max-width: 1200px; /* Increased for bigger screens */
+    max-width: 1200px;
     width: 90%;
     margin: 0 auto;
     display: flex;
@@ -80,26 +80,42 @@ body {
     transform-origin: center;
 }
 
-.screen.animate .content > * {
+.title-block {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.services-block {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.screen.animate .content > *, 
+.screen.animate .title-block > *,
+.screen.animate .services-block > * {
     animation: fadeUp 0.6s forwards cubic-bezier(0.19, 1, 0.22, 1);
     opacity: 0;
 }
 
 /* Animation delay for child elements */
-.screen.animate .content > *:nth-child(1) { animation-delay: 0.1s; }
-.screen.animate .content > *:nth-child(2) { animation-delay: 0.2s; }
-.screen.animate .content > *:nth-child(3) { animation-delay: 0.3s; }
-.screen.animate .content > *:nth-child(4) { animation-delay: 0.4s; }
-.screen.animate .content > *:nth-child(5) { animation-delay: 0.5s; }
-.screen.animate .content > *:nth-child(6) { animation-delay: 0.6s; }
+.screen.animate .title-block > *:nth-child(1) { animation-delay: 0.1s; }
+.screen.animate .title-block > *:nth-child(2) { animation-delay: 0.2s; }
+.screen.animate .services-block > *:nth-child(1) { animation-delay: 0.3s; }
+.screen.animate .services-block > *:nth-child(2) { animation-delay: 0.4s; }
+.screen.animate .services-block > *:nth-child(3) { animation-delay: 0.5s; }
+.screen.animate .services-block > *:nth-child(4) { animation-delay: 0.6s; }
+.screen.animate .content > button { animation-delay: 0.7s; }
+.screen.animate form { animation-delay: 0.3s; }
 
 /* Typography */
 .section-title {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 40px;
+    font-size: 3.8rem; /* Titres plus gros comme dans le document */
+    font-weight: 500; /* Poids de police ajusté */
+    margin-bottom: 20px;
     position: relative;
-    line-height: 1.2;
+    line-height: 1.1;
+    color: #555555; /* Gris plus prononcé */
+    text-transform: none;
 }
 
 .section-title:before {
@@ -109,19 +125,26 @@ body {
 
 .highlight {
     color: #e63030;
-    font-weight: 600;
+    font-weight: 500;
 }
 
-.content p {
-    font-size: 1.5rem;
+.highlight-big {
+    color: #e63030;
+    font-weight: 500;
+    font-size: 3rem; /* Plus grand pour les points d'emphase majeurs */
     margin-bottom: 20px;
-    max-width: 800px;
-    line-height: 1.4;
+    line-height: 1.1;
+}
+
+.service-line {
+    font-size: 2rem; /* Taille de police plus grande pour les services comme dans le document */
+    margin-bottom: 10px;
+    line-height: 1.3;
 }
 
 .form-intro {
-    font-size: 1.1rem;
-    color: #666;
+    font-size: 1.2rem;
+    color: #555555;
     margin-bottom: 30px;
     max-width: 600px;
 }
@@ -134,7 +157,7 @@ body {
     border-radius: 50%;
     width: 120px;
     height: 120px;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 1.1rem;
     cursor: pointer;
     display: flex;
@@ -142,7 +165,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 40px 0;
-    box-shadow: 0 10px 25px rgba(230, 48, 48, 0.2);
+    box-shadow: 0 4px 15px rgba(230, 48, 48, 0.2);
     transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), 
                 box-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     text-transform: uppercase;
@@ -150,38 +173,32 @@ body {
 }
 
 .engine-btn:hover {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(230, 48, 48, 0.3);
-}
-
-.engine-btn:active {
-    transform: translateY(-2px) scale(0.98);
-    box-shadow: 0 8px 15px rgba(230, 48, 48, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(230, 48, 48, 0.3);
 }
 
 .stop-btn {
     background-color: #333;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .stop-btn:hover {
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .how-btn, .go-ahead-btn {
     background-color: transparent;
-    color: #333;
+    color: #555555;
     border: 2px solid #e63030;
-    border-radius: 50px;
-    padding: 12px 30px;
-    font-weight: 600;
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-weight: 500;
     font-size: 1rem;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: 20px;
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .how-btn:after {
@@ -193,8 +210,7 @@ body {
 .how-btn:hover, .go-ahead-btn:hover {
     background-color: #e63030;
     color: white;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(230, 48, 48, 0.2);
+    transform: translateY(-3px);
 }
 
 .how-btn:hover:after {
@@ -226,15 +242,15 @@ input, textarea {
     width: 100%;
     padding: 15px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 0; /* Bordures carrées comme dans le design */
     font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: border-color 0.3s ease;
+    color: #555555;
 }
 
 input:focus, textarea:focus {
     outline: none;
     border-color: #e63030;
-    box-shadow: 0 0 0 3px rgba(230, 48, 48, 0.1);
 }
 
 textarea {
@@ -246,16 +262,15 @@ textarea {
     background-color: #e63030;
     color: white;
     border: none;
-    border-radius: 50px;
-    padding: 12px 30px;
-    font-weight: 600;
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-weight: 500;
     font-size: 1rem;
     cursor: pointer;
     margin-top: 20px;
     display: block;
     margin-left: auto;
     transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-    box-shadow: 0 8px 15px rgba(230, 48, 48, 0.2);
 }
 
 .share-btn:after {
@@ -263,13 +278,7 @@ textarea {
 }
 
 .share-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(230, 48, 48, 0.3);
-}
-
-.share-btn:active {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(230, 48, 48, 0.2);
+    transform: translateY(-3px);
 }
 
 /* Animations */
@@ -285,18 +294,22 @@ textarea {
 }
 
 /* Media Queries */
-/* For large screens */
-@media (min-width: 1600px) {
+/* Pour très grands écrans */
+@media (min-width: 1800px) {
     .content {
-        max-width: 1400px;
+        max-width: 1600px;
     }
     
     .section-title {
-        font-size: 3.5rem;
+        font-size: 5rem;
     }
     
-    .content p {
-        font-size: 1.8rem;
+    .highlight-big {
+        font-size: 4rem;
+    }
+    
+    .service-line {
+        font-size: 2.5rem;
     }
     
     .engine-btn {
@@ -304,20 +317,35 @@ textarea {
         height: 150px;
         font-size: 1.3rem;
     }
+}
+
+/* Pour grands écrans */
+@media (min-width: 1200px) and (max-width: 1799px) {
+    .section-title {
+        font-size: 4.2rem;
+    }
     
-    form {
-        max-width: 700px;
+    .highlight-big {
+        font-size: 3.5rem;
+    }
+    
+    .service-line {
+        font-size: 2.2rem;
     }
 }
 
-/* For medium screens */
-@media (max-width: 1200px) {
+/* Pour écrans moyens */
+@media (max-width: 1199px) {
     .section-title {
-        font-size: 2.5rem;
+        font-size: 3.2rem;
     }
     
-    .content p {
-        font-size: 1.3rem;
+    .highlight-big {
+        font-size: 2.6rem;
+    }
+    
+    .service-line {
+        font-size: 1.8rem;
     }
     
     .engine-btn {
@@ -326,16 +354,18 @@ textarea {
     }
 }
 
-/* For tablets */
+/* Pour tablettes */
 @media (max-width: 768px) {
     .section-title {
-        font-size: 2rem;
-        margin-bottom: 30px;
+        font-size: 2.5rem;
     }
     
-    .content p {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
+    .highlight-big {
+        font-size: 2rem;
+    }
+    
+    .service-line {
+        font-size: 1.5rem;
     }
     
     .logo {
@@ -351,30 +381,32 @@ textarea {
         margin: 30px 0;
     }
     
-    .how-btn, .go-ahead-btn, .share-btn {
-        padding: 10px 25px;
+    .title-block {
+        margin-bottom: 30px;
+    }
+    
+    .services-block {
+        margin-bottom: 30px;
     }
 }
 
-/* For mobile phones */
+/* Pour téléphones mobiles */
 @media (max-width: 480px) {
     .screen {
-        padding: 70px 15px 30px;
+        padding: 80px 15px 30px;
         justify-content: flex-start;
     }
     
-    .content {
-        padding: 30px 10px;
-    }
-    
     .section-title {
-        font-size: 1.6rem;
-        margin-bottom: 25px;
+        font-size: 2rem;
     }
     
-    .content p {
-        font-size: 1rem;
-        margin-bottom: 12px;
+    .highlight-big {
+        font-size: 1.7rem;
+    }
+    
+    .service-line {
+        font-size: 1.3rem;
     }
     
     .logo {
@@ -395,20 +427,20 @@ textarea {
         font-size: 0.9rem;
     }
     
-    form {
-        margin-top: 10px;
+    .content {
+        padding: 20px 10px;
     }
     
-    .form-group {
-        margin-bottom: 15px;
+    .title-block {
+        margin-bottom: 20px;
     }
     
-    input, textarea {
-        padding: 12px;
+    .services-block {
+        margin-bottom: 20px;
     }
 }
 
-/* For landscape orientation on mobile */
+/* Pour orientation paysage sur mobile */
 @media (max-height: 500px) and (orientation: landscape) {
     .screen {
         padding: 70px 15px 20px;
@@ -421,16 +453,24 @@ textarea {
         align-items: center;
     }
     
-    .section-title {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
+    .title-block, .services-block {
         width: 100%;
+        margin-bottom: 15px;
     }
     
-    .content p {
-        font-size: 1rem;
-        margin-bottom: 8px;
-        width: 100%;
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .highlight-big {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .service-line {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
     }
     
     .logo {
@@ -444,23 +484,5 @@ textarea {
         height: 70px;
         font-size: 0.8rem;
         margin: 15px;
-    }
-    
-    .how-btn, .go-ahead-btn {
-        margin-top: 10px;
-    }
-    
-    form {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    
-    .form-group {
-        width: 48%;
-    }
-    
-    .form-group:last-of-type {
-        width: 100%;
     }
 }
