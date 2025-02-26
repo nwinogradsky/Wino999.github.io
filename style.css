@@ -7,25 +7,18 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-html, body {
-    height: 100%;
+body {
+    background-color: #f9f9f9;
+    color: #333;
     overflow: hidden;
 }
 
-body {
-    background-color: #fff;
-    color: #333;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-/* Écrans */
 .screen {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,66 +26,49 @@ body {
     padding: 2rem;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transform: translateY(10px);
-    background-color: #fff;
+    transition: opacity 0.5s ease;
+    background-color: white;
 }
 
 .screen.active {
     opacity: 1;
     pointer-events: all;
-    z-index: 10;
-    transform: translateY(0);
+    z-index: 1;
 }
 
-/* Logo */
 .logo {
     position: absolute;
     top: 2rem;
     left: 2rem;
     max-width: 150px;
-    height: auto;
-    z-index: 20;
 }
 
-/* Boutons */
 .engine-btn {
     background-color: #e63030;
-    color: #fff;
+    color: white;
     border: none;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     font-weight: bold;
-    font-size: 1rem;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     line-height: 1.2;
     margin: 2rem 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-transform: uppercase;
 }
 
 .engine-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
-.engine-btn:active {
-    transform: scale(0.98);
-}
-
-/* Titres et texte */
 .section-title {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
     text-align: center;
-    font-weight: 600;
-    line-height: 1.2;
 }
 
 .section-title:before {
@@ -109,66 +85,64 @@ body {
     max-width: 800px;
     text-align: center;
     margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .content p {
     font-size: 1.3rem;
     margin-bottom: 1rem;
-    max-width: 100%;
 }
 
-/* Boutons de navigation */
-.how-btn, .go-ahead-btn {
-    background-color: #fff;
+.how-btn {
+    background-color: white;
     color: #333;
     border: 2px solid #e63030;
-    border-radius: 30px;
-    padding: 0.6rem 1.5rem;
-    font-weight: 600;
-    font-size: 1rem;
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
-    text-transform: uppercase;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .how-btn:after {
     content: " >";
     color: #e63030;
-    transition: color 0.3s ease;
 }
 
-.how-btn:hover, .go-ahead-btn:hover {
+.how-btn:hover {
     background-color: #e63030;
-    color: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-.how-btn:active, .go-ahead-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    color: white;
 }
 
 .how-btn:hover:after {
-    color: #fff;
+    color: white;
+}
+
+.go-ahead-btn {
+    background-color: white;
+    color: #333;
+    border: 2px solid #e63030;
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .go-ahead-btn:before {
     content: "GO AHEAD! ";
     color: #e63030;
-    transition: color 0.3s ease;
+}
+
+.go-ahead-btn:hover {
+    background-color: #e63030;
+    color: white;
 }
 
 .go-ahead-btn:hover:before {
-    color: #fff;
+    color: white;
 }
 
-/* Formulaire */
 form {
     width: 100%;
     max-width: 500px;
@@ -184,36 +158,23 @@ input, textarea {
     border: 1px solid #ddd;
     margin-top: 0.3rem;
     font-size: 1rem;
-    border-radius: 4px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-input:focus, textarea:focus {
-    outline: none;
-    border-color: #e63030;
-    box-shadow: 0 0 0 3px rgba(230, 48, 48, 0.1);
 }
 
 textarea {
     height: 150px;
-    resize: vertical;
 }
 
 .share-btn {
     background-color: #e63030;
-    color: #fff;
+    color: white;
     border: none;
-    border-radius: 30px;
-    padding: 0.6rem 1.5rem;
-    font-weight: 600;
-    font-size: 1rem;
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
     margin-top: 1rem;
-    display: block;
-    margin-left: auto;
-    box-shadow: 0 4px 10px rgba(230, 48, 48, 0.2);
-    text-transform: uppercase;
+    align-self: flex-end;
 }
 
 .share-btn:after {
@@ -221,13 +182,7 @@ textarea {
 }
 
 .share-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(230, 48, 48, 0.3);
-}
-
-.share-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 8px rgba(230, 48, 48, 0.2);
+    transform: scale(1.05);
 }
 
 .form-intro {
@@ -237,7 +192,7 @@ textarea {
     text-align: center;
 }
 
-/* Adaptations pour les différents écrans */
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .section-title {
         font-size: 1.8rem;
@@ -250,24 +205,11 @@ textarea {
     .logo {
         max-width: 120px;
     }
-    
-    .engine-btn {
-        width: 90px;
-        height: 90px;
-        font-size: 0.9rem;
-    }
 }
 
 @media (max-width: 480px) {
-    .screen {
-        padding: 1rem;
-        justify-content: flex-start;
-        padding-top: 6rem;
-    }
-    
     .section-title {
         font-size: 1.5rem;
-        margin-top: 2rem;
     }
     
     .content p {
@@ -283,39 +225,6 @@ textarea {
     .engine-btn {
         width: 80px;
         height: 80px;
-        font-size: 0.8rem;
-    }
-    
-    .how-btn, .go-ahead-btn, .share-btn {
         font-size: 0.9rem;
-        padding: 0.5rem 1.2rem;
-    }
-}
-
-/* Pour les écrans en orientation paysage sur mobile */
-@media (max-height: 500px) and (orientation: landscape) {
-    .screen {
-        padding: 4rem 1rem 1rem;
-        justify-content: flex-start;
-    }
-    
-    .section-title {
-        margin-top: 0;
-        font-size: 1.5rem;
-    }
-    
-    .content p {
-        font-size: 1rem;
-    }
-    
-    .engine-btn {
-        width: 70px;
-        height: 70px;
-        font-size: 0.8rem;
-        margin: 1rem 0;
-    }
-    
-    .logo {
-        width: 80px;
     }
 }
