@@ -10,39 +10,41 @@
     <!-- Screen 1 -->
     <div class="screen active" id="screen1">
         <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
-        <h1 class="section-title">Creative Digital Company</h1>
-        <button class="engine-btn" onclick="nextScreen(2)">ENGINE<br>START</button>
+        <div class="content">
+            <h1 class="section-title">Creative Digital Company</h1>
+            <button class="engine-btn" onclick="nextScreen(2)">ENGINE<br>START</button>
+        </div>
     </div>
     
     <!-- Screen 2 -->
     <div class="screen" id="screen2">
-        <img class="logo" src="logo.png" alt="Dashlean Logo">
+        <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
         <div class="content">
             <h2 class="section-title">We are a Network Of</h2>
             <p class="highlight">Digital Experts</p>
             <p>We provide <span class="highlight">Digital Strategies</span></p>
             <p class="highlight">MVP to Scalable Product</p>
             <p class="highlight">Agile Development</p>
+            <button class="how-btn" onclick="nextScreen(3)">HOW</button>
         </div>
-        <button class="how-btn" onclick="nextScreen(3)">HOW</button>
     </div>
     
     <!-- Screen 3 -->
     <div class="screen" id="screen3">
-        <img class="logo" src="logo.png" alt="Dashlean Logo">
+        <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
         <div class="content">
             <h2 class="section-title">W/ our Lean Approach</h2>
             <p>We usually work w/</p>
             <p class="highlight">Smart Budget</p>
             <p>We provide <span class="highlight">Custom made Solution</span></p>
             <p class="highlight">Fast Execution</p>
+            <button class="go-ahead-btn" onclick="nextScreen(4)"></button>
         </div>
-        <button class="go-ahead-btn" onclick="nextScreen(4)"></button>
     </div>
     
     <!-- Screen 4 -->
     <div class="screen" id="screen4">
-        <img class="logo" src="logo.png" alt="Dashlean Logo">
+        <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
         <div class="content">
             <h2 class="section-title">Your Ideas Start Here</h2>
             <p class="highlight">To Digital Reality</p>
@@ -68,29 +70,53 @@
     
     <!-- Screen 5 -->
     <div class="screen" id="screen5">
-        <img class="logo" src="logo.png" alt="Dashlean Logo">
+        <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
         <div class="content">
             <h2 class="section-title">No Joke, We Work at</h2>
             <p class="highlight">Excellence level</p>
+            <button class="engine-btn stop-btn" onclick="nextScreen(1)">ENGINE<br>STOP</button>
         </div>
-        <button class="engine-btn" style="background-color: #333;" onclick="nextScreen(1)">ENGINE<br>STOP</button>
     </div>
     
     <script>
+        // Gestion des transitions entre écrans
         function nextScreen(screenNumber) {
-            // Hide current screen
-            document.querySelector('.screen.active').classList.remove('active');
+            // Cache l'écran actuel
+            const currentScreen = document.querySelector('.screen.active');
+            currentScreen.classList.add('exit');
             
-            // Show next screen
-            document.getElementById('screen' + screenNumber).classList.add('active');
+            // Montre le nouvel écran après un délai
+            setTimeout(() => {
+                // Réinitialise tous les écrans
+                document.querySelectorAll('.screen').forEach(screen => {
+                    screen.classList.remove('active', 'exit');
+                });
+                
+                // Active le nouvel écran
+                const nextScreen = document.getElementById('screen' + screenNumber);
+                nextScreen.classList.add('active');
+                
+                // Ajoute une classe 'animate' pour déclencher les animations d'entrée
+                nextScreen.classList.add('animate');
+                
+                // Retire la classe 'animate' après la fin des animations
+                setTimeout(() => {
+                    nextScreen.classList.remove('animate');
+                }, 1500);
+            }, 600);
         }
         
-        // Handle form submission (simulate)
-        document.querySelector('.share-btn').addEventListener('click', function(e) {
-            e.preventDefault();
-            const form = document.getElementById('contactForm');
-            // In a real implementation, this would send data to your server
-            console.log('Form submitted');
+        // Gestion du formulaire (simulation)
+        document.addEventListener('DOMContentLoaded', function() {
+            const shareBtn = document.querySelector('.share-btn');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const form = document.getElementById('contactForm');
+                    // Dans une implémentation réelle, ceci enverrait les données à votre serveur
+                    console.log('Formulaire soumis');
+                });
+            }
         });
     </script>
 </body>
