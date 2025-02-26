@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
+/* Base styles */
 * {
     margin: 0;
     padding: 0;
@@ -9,17 +10,19 @@
 
 html, body {
     height: 100%;
+    width: 100%;
     overflow: hidden;
+    background-color: #ffffff;
 }
 
 body {
-    background-color: #fff;
     color: #333;
     font-size: 16px;
     line-height: 1.6;
+    position: relative;
 }
 
-/* Écrans */
+/* Screen styles */
 .screen {
     position: absolute;
     top: 0;
@@ -27,71 +30,75 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    background-color: #ffffff;
+    z-index: 1;
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transform: translateY(10px);
-    background-color: #fff;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateY(30px);
+    overflow-y: auto;
+    padding: 20px;
 }
 
 .screen.active {
     opacity: 1;
-    pointer-events: all;
-    z-index: 10;
+    visibility: visible;
     transform: translateY(0);
+    z-index: 2;
+}
+
+.screen.exit {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 /* Logo */
 .logo {
     position: absolute;
-    top: 2rem;
-    left: 2rem;
+    top: 30px;
+    left: 30px;
     max-width: 150px;
-    height: auto;
-    z-index: 20;
+    z-index: 10;
+    transition: transform 0.3s ease;
 }
 
-/* Boutons */
-.engine-btn {
-    background-color: #e63030;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Content container */
+.content {
+    max-width: 1200px; /* Increased for bigger screens */
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    line-height: 1.2;
-    margin: 2rem 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-transform: uppercase;
-}
-
-.engine-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-
-.engine-btn:active {
-    transform: scale(0.98);
-}
-
-/* Titres et texte */
-.section-title {
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
+    justify-content: center;
     text-align: center;
-    font-weight: 600;
+    position: relative;
+    padding: 40px 20px;
+    transform-origin: center;
+}
+
+.screen.animate .content > * {
+    animation: fadeUp 0.6s forwards cubic-bezier(0.19, 1, 0.22, 1);
+    opacity: 0;
+}
+
+/* Animation delay for child elements */
+.screen.animate .content > *:nth-child(1) { animation-delay: 0.1s; }
+.screen.animate .content > *:nth-child(2) { animation-delay: 0.2s; }
+.screen.animate .content > *:nth-child(3) { animation-delay: 0.3s; }
+.screen.animate .content > *:nth-child(4) { animation-delay: 0.4s; }
+.screen.animate .content > *:nth-child(5) { animation-delay: 0.5s; }
+.screen.animate .content > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Typography */
+.section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    position: relative;
     line-height: 1.2;
 }
 
@@ -105,35 +112,76 @@ body {
     font-weight: 600;
 }
 
-.content {
+.content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
     max-width: 800px;
-    text-align: center;
-    margin-bottom: 2rem;
+    line-height: 1.4;
+}
+
+.form-intro {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+/* Buttons */
+.engine-btn {
+    background-color: #e63030;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin: 40px 0;
+    box-shadow: 0 10px 25px rgba(230, 48, 48, 0.2);
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), 
+                box-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    text-transform: uppercase;
+    line-height: 1.3;
 }
 
-.content p {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    max-width: 100%;
+.engine-btn:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(230, 48, 48, 0.3);
 }
 
-/* Boutons de navigation */
+.engine-btn:active {
+    transform: translateY(-2px) scale(0.98);
+    box-shadow: 0 8px 15px rgba(230, 48, 48, 0.2);
+}
+
+.stop-btn {
+    background-color: #333;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.stop-btn:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
 .how-btn, .go-ahead-btn {
-    background-color: #fff;
+    background-color: transparent;
     color: #333;
     border: 2px solid #e63030;
-    border-radius: 30px;
-    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    padding: 12px 30px;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    margin-top: 30px;
     position: relative;
-    text-transform: uppercase;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .how-btn:after {
@@ -144,18 +192,13 @@ body {
 
 .how-btn:hover, .go-ahead-btn:hover {
     background-color: #e63030;
-    color: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-.how-btn:active, .go-ahead-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(230, 48, 48, 0.2);
 }
 
 .how-btn:hover:after {
-    color: #fff;
+    color: white;
 }
 
 .go-ahead-btn:before {
@@ -165,26 +208,26 @@ body {
 }
 
 .go-ahead-btn:hover:before {
-    color: #fff;
+    color: white;
 }
 
-/* Formulaire */
+/* Form styles */
 form {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
+    margin-top: 20px;
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 20px;
 }
 
 input, textarea {
     width: 100%;
-    padding: 0.8rem;
+    padding: 15px;
     border: 1px solid #ddd;
-    margin-top: 0.3rem;
+    border-radius: 5px;
     font-size: 1rem;
-    border-radius: 4px;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -201,19 +244,18 @@ textarea {
 
 .share-btn {
     background-color: #e63030;
-    color: #fff;
+    color: white;
     border: none;
-    border-radius: 30px;
-    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    padding: 12px 30px;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 1rem;
+    margin-top: 20px;
     display: block;
     margin-left: auto;
-    box-shadow: 0 4px 10px rgba(230, 48, 48, 0.2);
-    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0 8px 15px rgba(230, 48, 48, 0.2);
 }
 
 .share-btn:after {
@@ -221,101 +263,204 @@ textarea {
 }
 
 .share-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(230, 48, 48, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(230, 48, 48, 0.3);
 }
 
 .share-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 8px rgba(230, 48, 48, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(230, 48, 48, 0.2);
 }
 
-.form-intro {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 1.5rem;
-    text-align: center;
+/* Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Adaptations pour les différents écrans */
-@media (max-width: 768px) {
+/* Media Queries */
+/* For large screens */
+@media (min-width: 1600px) {
+    .content {
+        max-width: 1400px;
+    }
+    
     .section-title {
-        font-size: 1.8rem;
+        font-size: 3.5rem;
     }
     
     .content p {
-        font-size: 1.1rem;
+        font-size: 1.8rem;
+    }
+    
+    .engine-btn {
+        width: 150px;
+        height: 150px;
+        font-size: 1.3rem;
+    }
+    
+    form {
+        max-width: 700px;
+    }
+}
+
+/* For medium screens */
+@media (max-width: 1200px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .content p {
+        font-size: 1.3rem;
+    }
+    
+    .engine-btn {
+        width: 110px;
+        height: 110px;
+    }
+}
+
+/* For tablets */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    .content p {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
     }
     
     .logo {
         max-width: 120px;
+        top: 20px;
+        left: 20px;
+    }
+    
+    .engine-btn {
+        width: 100px;
+        height: 100px;
+        font-size: 1rem;
+        margin: 30px 0;
+    }
+    
+    .how-btn, .go-ahead-btn, .share-btn {
+        padding: 10px 25px;
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+    .screen {
+        padding: 70px 15px 30px;
+        justify-content: flex-start;
+    }
+    
+    .content {
+        padding: 30px 10px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+    
+    .content p {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
+    
+    .logo {
+        max-width: 100px;
+        top: 15px;
+        left: 15px;
     }
     
     .engine-btn {
         width: 90px;
         height: 90px;
         font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .screen {
-        padding: 1rem;
-        justify-content: flex-start;
-        padding-top: 6rem;
-    }
-    
-    .section-title {
-        font-size: 1.5rem;
-        margin-top: 2rem;
-    }
-    
-    .content p {
-        font-size: 1rem;
-    }
-    
-    .logo {
-        max-width: 100px;
-        top: 1rem;
-        left: 1rem;
-    }
-    
-    .engine-btn {
-        width: 80px;
-        height: 80px;
-        font-size: 0.8rem;
+        margin: 25px 0;
     }
     
     .how-btn, .go-ahead-btn, .share-btn {
+        padding: 8px 20px;
         font-size: 0.9rem;
-        padding: 0.5rem 1.2rem;
+    }
+    
+    form {
+        margin-top: 10px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    input, textarea {
+        padding: 12px;
     }
 }
 
-/* Pour les écrans en orientation paysage sur mobile */
+/* For landscape orientation on mobile */
 @media (max-height: 500px) and (orientation: landscape) {
     .screen {
-        padding: 4rem 1rem 1rem;
-        justify-content: flex-start;
+        padding: 70px 15px 20px;
+    }
+    
+    .content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
     }
     
     .section-title {
-        margin-top: 0;
         font-size: 1.5rem;
+        margin-bottom: 15px;
+        width: 100%;
     }
     
     .content p {
         font-size: 1rem;
+        margin-bottom: 8px;
+        width: 100%;
+    }
+    
+    .logo {
+        max-width: 80px;
+        top: 10px;
+        left: 10px;
     }
     
     .engine-btn {
         width: 70px;
         height: 70px;
         font-size: 0.8rem;
-        margin: 1rem 0;
+        margin: 15px;
     }
     
-    .logo {
-        width: 80px;
+    .how-btn, .go-ahead-btn {
+        margin-top: 10px;
+    }
+    
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .form-group {
+        width: 48%;
+    }
+    
+    .form-group:last-of-type {
+        width: 100%;
     }
 }
