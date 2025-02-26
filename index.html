@@ -1,321 +1,97 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
-
-html, body {
-    height: 100%;
-    overflow: hidden;
-}
-
-body {
-    background-color: #fff;
-    color: #333;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-/* Écrans */
-.screen {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    transform: translateY(10px);
-    background-color: #fff;
-}
-
-.screen.active {
-    opacity: 1;
-    pointer-events: all;
-    z-index: 10;
-    transform: translateY(0);
-}
-
-/* Logo */
-.logo {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    max-width: 150px;
-    height: auto;
-    z-index: 20;
-}
-
-/* Boutons */
-.engine-btn {
-    background-color: #e63030;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    line-height: 1.2;
-    margin: 2rem 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    text-transform: uppercase;
-}
-
-.engine-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-
-.engine-btn:active {
-    transform: scale(0.98);
-}
-
-/* Titres et texte */
-.section-title {
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-weight: 600;
-    line-height: 1.2;
-}
-
-.section-title:before {
-    content: "_ ";
-    color: #e63030;
-}
-
-.highlight {
-    color: #e63030;
-    font-weight: 600;
-}
-
-.content {
-    max-width: 800px;
-    text-align: center;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.content p {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    max-width: 100%;
-}
-
-/* Boutons de navigation */
-.how-btn, .go-ahead-btn {
-    background-color: #fff;
-    color: #333;
-    border: 2px solid #e63030;
-    border-radius: 30px;
-    padding: 0.6rem 1.5rem;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    text-transform: uppercase;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-.how-btn:after {
-    content: " >";
-    color: #e63030;
-    transition: color 0.3s ease;
-}
-
-.how-btn:hover, .go-ahead-btn:hover {
-    background-color: #e63030;
-    color: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-.how-btn:active, .go-ahead-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-}
-
-.how-btn:hover:after {
-    color: #fff;
-}
-
-.go-ahead-btn:before {
-    content: "GO AHEAD! ";
-    color: #e63030;
-    transition: color 0.3s ease;
-}
-
-.go-ahead-btn:hover:before {
-    color: #fff;
-}
-
-/* Formulaire */
-form {
-    width: 100%;
-    max-width: 500px;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    margin-top: 0.3rem;
-    font-size: 1rem;
-    border-radius: 4px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-input:focus, textarea:focus {
-    outline: none;
-    border-color: #e63030;
-    box-shadow: 0 0 0 3px rgba(230, 48, 48, 0.1);
-}
-
-textarea {
-    height: 150px;
-    resize: vertical;
-}
-
-.share-btn {
-    background-color: #e63030;
-    color: #fff;
-    border: none;
-    border-radius: 30px;
-    padding: 0.6rem 1.5rem;
-    font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 1rem;
-    display: block;
-    margin-left: auto;
-    box-shadow: 0 4px 10px rgba(230, 48, 48, 0.2);
-    text-transform: uppercase;
-}
-
-.share-btn:after {
-    content: " US >";
-}
-
-.share-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(230, 48, 48, 0.3);
-}
-
-.share-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 8px rgba(230, 48, 48, 0.2);
-}
-
-.form-intro {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-/* Adaptations pour les différents écrans */
-@media (max-width: 768px) {
-    .section-title {
-        font-size: 1.8rem;
-    }
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashlean - Creative Digital Company</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Screen 1 -->
+    <div class="screen active" id="screen1">
+        <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
+        <h1 class="section-title">Creative Digital Company</h1>
+        <button class="engine-btn" onclick="nextScreen(2)">ENGINE<br>START</button>
+    </div>
     
-    .content p {
-        font-size: 1.1rem;
-    }
+    <!-- Screen 2 -->
+    <div class="screen" id="screen2">
+        <img class="logo" src="logo.png" alt="Dashlean Logo">
+        <div class="content">
+            <h2 class="section-title">We are a Network Of</h2>
+            <p class="highlight">Digital Experts</p>
+            <p>We provide <span class="highlight">Digital Strategies</span></p>
+            <p class="highlight">MVP to Scalable Product</p>
+            <p class="highlight">Agile Development</p>
+        </div>
+        <button class="how-btn" onclick="nextScreen(3)">HOW</button>
+    </div>
     
-    .logo {
-        max-width: 120px;
-    }
+    <!-- Screen 3 -->
+    <div class="screen" id="screen3">
+        <img class="logo" src="logo.png" alt="Dashlean Logo">
+        <div class="content">
+            <h2 class="section-title">W/ our Lean Approach</h2>
+            <p>We usually work w/</p>
+            <p class="highlight">Smart Budget</p>
+            <p>We provide <span class="highlight">Custom made Solution</span></p>
+            <p class="highlight">Fast Execution</p>
+        </div>
+        <button class="go-ahead-btn" onclick="nextScreen(4)"></button>
+    </div>
     
-    .engine-btn {
-        width: 90px;
-        height: 90px;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .screen {
-        padding: 1rem;
-        justify-content: flex-start;
-        padding-top: 6rem;
-    }
+    <!-- Screen 4 -->
+    <div class="screen" id="screen4">
+        <img class="logo" src="logo.png" alt="Dashlean Logo">
+        <div class="content">
+            <h2 class="section-title">Your Ideas Start Here</h2>
+            <p class="highlight">To Digital Reality</p>
+            <p class="form-intro">w/ our Technical Excellence & Fast Innovation Teams</p>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="company" placeholder="Company" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="project" placeholder="Tell us briefly about your project"></textarea>
+                </div>
+                <button type="button" class="share-btn" onclick="nextScreen(5)">SHARE W/</button>
+            </form>
+        </div>
+    </div>
     
-    .section-title {
-        font-size: 1.5rem;
-        margin-top: 2rem;
-    }
+    <!-- Screen 5 -->
+    <div class="screen" id="screen5">
+        <img class="logo" src="logo.png" alt="Dashlean Logo">
+        <div class="content">
+            <h2 class="section-title">No Joke, We Work at</h2>
+            <p class="highlight">Excellence level</p>
+        </div>
+        <button class="engine-btn" style="background-color: #333;" onclick="nextScreen(1)">ENGINE<br>STOP</button>
+    </div>
     
-    .content p {
-        font-size: 1rem;
-    }
-    
-    .logo {
-        max-width: 100px;
-        top: 1rem;
-        left: 1rem;
-    }
-    
-    .engine-btn {
-        width: 80px;
-        height: 80px;
-        font-size: 0.8rem;
-    }
-    
-    .how-btn, .go-ahead-btn, .share-btn {
-        font-size: 0.9rem;
-        padding: 0.5rem 1.2rem;
-    }
-}
-
-/* Pour les écrans en orientation paysage sur mobile */
-@media (max-height: 500px) and (orientation: landscape) {
-    .screen {
-        padding: 4rem 1rem 1rem;
-        justify-content: flex-start;
-    }
-    
-    .section-title {
-        margin-top: 0;
-        font-size: 1.5rem;
-    }
-    
-    .content p {
-        font-size: 1rem;
-    }
-    
-    .engine-btn {
-        width: 70px;
-        height: 70px;
-        font-size: 0.8rem;
-        margin: 1rem 0;
-    }
-    
-    .logo {
-        width: 80px;
-    }
-}
+    <script>
+        function nextScreen(screenNumber) {
+            // Hide current screen
+            document.querySelector('.screen.active').classList.remove('active');
+            
+            // Show next screen
+            document.getElementById('screen' + screenNumber).classList.add('active');
+        }
+        
+        // Handle form submission (simulate)
+        document.querySelector('.share-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const form = document.getElementById('contactForm');
+            // In a real implementation, this would send data to your server
+            console.log('Form submitted');
+        });
+    </script>
+</body>
+</html>
