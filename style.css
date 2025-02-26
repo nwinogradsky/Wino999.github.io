@@ -16,7 +16,7 @@ html, body {
 }
 
 body {
-    color: #555555; /* Texte plus grisé comme dans le document */
+    color: #666666; /* Couleur de texte uniforme */
     font-size: 16px;
     line-height: 1.6;
     position: relative;
@@ -109,12 +109,12 @@ body {
 
 /* Typography */
 .section-title {
-    font-size: 3.8rem; /* Titres plus gros comme dans le document */
-    font-weight: 500; /* Poids de police ajusté */
+    font-size: 3.8rem;
+    font-weight: 500;
     margin-bottom: 20px;
     position: relative;
     line-height: 1.1;
-    color: #555555; /* Gris plus prononcé */
+    color: #666666; /* Gris uniforme pour tous les textes */
     text-transform: none;
 }
 
@@ -128,23 +128,24 @@ body {
     font-weight: 500;
 }
 
+/* Uniformisation des tailles pour les textes mis en évidence */
+.highlight-big,
+.service-line,
+#screen4 .highlight-big,
+#screen5 .highlight-big {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
 .highlight-big {
     color: #e63030;
     font-weight: 500;
-    font-size: 3rem; /* Plus grand pour les points d'emphase majeurs */
-    margin-bottom: 20px;
-    line-height: 1.1;
-}
-
-.service-line {
-    font-size: 2rem; /* Taille de police plus grande pour les services comme dans le document */
-    margin-bottom: 10px;
-    line-height: 1.3;
 }
 
 .form-intro {
     font-size: 1.2rem;
-    color: #555555;
+    color: #666666;
     margin-bottom: 30px;
     max-width: 600px;
 }
@@ -188,7 +189,7 @@ body {
 
 .how-btn, .go-ahead-btn {
     background-color: transparent;
-    color: #555555;
+    color: #666666;
     border: 2px solid #e63030;
     border-radius: 30px;
     padding: 10px 25px;
@@ -242,10 +243,10 @@ input, textarea {
     width: 100%;
     padding: 15px;
     border: 1px solid #ddd;
-    border-radius: 0; /* Bordures carrées comme dans le design */
+    border-radius: 0;
     font-size: 1rem;
     transition: border-color 0.3s ease;
-    color: #555555;
+    color: #666666;
 }
 
 input:focus, textarea:focus {
@@ -304,12 +305,9 @@ textarea {
         font-size: 5rem;
     }
     
-    .highlight-big {
-        font-size: 4rem;
-    }
-    
+    .highlight-big,
     .service-line {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
     
     .engine-btn {
@@ -325,12 +323,9 @@ textarea {
         font-size: 4.2rem;
     }
     
-    .highlight-big {
-        font-size: 3.5rem;
-    }
-    
+    .highlight-big,
     .service-line {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
 }
 
@@ -340,12 +335,9 @@ textarea {
         font-size: 3.2rem;
     }
     
-    .highlight-big {
-        font-size: 2.6rem;
-    }
-    
+    .highlight-big,
     .service-line {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     
     .engine-btn {
@@ -360,12 +352,9 @@ textarea {
         font-size: 2.5rem;
     }
     
-    .highlight-big {
-        font-size: 2rem;
-    }
-    
+    .highlight-big,
     .service-line {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
     
     .logo {
@@ -401,12 +390,9 @@ textarea {
         font-size: 2rem;
     }
     
-    .highlight-big {
-        font-size: 1.7rem;
-    }
-    
+    .highlight-big,
     .service-line {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
     
     .logo {
@@ -463,13 +449,9 @@ textarea {
         margin-bottom: 10px;
     }
     
-    .highlight-big {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-    }
-    
+    .highlight-big,
     .service-line {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         margin-bottom: 5px;
     }
     
