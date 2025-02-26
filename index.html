@@ -20,11 +20,15 @@
     <div class="screen" id="screen2">
         <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
         <div class="content">
-            <h2 class="section-title">We are a Network Of</h2>
-            <p class="highlight">Digital Experts</p>
-            <p>We provide <span class="highlight">Digital Strategies</span></p>
-            <p class="highlight">MVP to Scalable Product</p>
-            <p class="highlight">Agile Development</p>
+            <div class="title-block">
+                <h2 class="section-title">We are a Network Of</h2>
+                <p class="highlight-big">Digital Experts</p>
+            </div>
+            <div class="services-block">
+                <p class="service-line">We provide <span class="highlight">Digital Strategies</span></p>
+                <p class="service-line highlight">MVP to Scalable Product</p>
+                <p class="service-line highlight">Agile Development</p>
+            </div>
             <button class="how-btn" onclick="nextScreen(3)">HOW</button>
         </div>
     </div>
@@ -33,11 +37,15 @@
     <div class="screen" id="screen3">
         <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
         <div class="content">
-            <h2 class="section-title">W/ our Lean Approach</h2>
-            <p>We usually work w/</p>
-            <p class="highlight">Smart Budget</p>
-            <p>We provide <span class="highlight">Custom made Solution</span></p>
-            <p class="highlight">Fast Execution</p>
+            <div class="title-block">
+                <h2 class="section-title">W/ our Lean Approach</h2>
+            </div>
+            <div class="services-block">
+                <p class="service-line">We usually work w/</p>
+                <p class="service-line highlight-big">Smart Budget</p>
+                <p class="service-line">We provide <span class="highlight">Custom made Solution</span></p>
+                <p class="service-line highlight">Fast Execution</p>
+            </div>
             <button class="go-ahead-btn" onclick="nextScreen(4)"></button>
         </div>
     </div>
@@ -46,10 +54,11 @@
     <div class="screen" id="screen4">
         <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
         <div class="content">
-            <h2 class="section-title">Your Ideas Start Here</h2>
-            <p class="highlight">To Digital Reality</p>
-            <p class="form-intro">w/ our Technical Excellence & Fast Innovation Teams</p>
-            
+            <div class="title-block">
+                <h2 class="section-title">Your Ideas Start Here</h2>
+                <p class="highlight-big">To Digital Reality</p>
+                <p class="form-intro">w/ our Technical Excellence & Fast Innovation Teams</p>
+            </div>
             <form id="contactForm">
                 <div class="form-group">
                     <input type="text" id="name" placeholder="Name" required>
@@ -72,8 +81,10 @@
     <div class="screen" id="screen5">
         <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
         <div class="content">
-            <h2 class="section-title">No Joke, We Work at</h2>
-            <p class="highlight">Excellence level</p>
+            <div class="title-block">
+                <h2 class="section-title">No Joke, We Work at</h2>
+                <p class="highlight-big">Excellence level</p>
+            </div>
             <button class="engine-btn stop-btn" onclick="nextScreen(1)">ENGINE<br>STOP</button>
         </div>
     </div>
@@ -106,13 +117,18 @@
             }, 600);
         }
         
-        // Gestion du formulaire (simulation)
+        // S'assurer que le premier écran est animé au chargement
         document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('screen1').classList.add('animate');
+            setTimeout(() => {
+                document.getElementById('screen1').classList.remove('animate');
+            }, 1500);
+            
+            // Gestion du formulaire (simulation)
             const shareBtn = document.querySelector('.share-btn');
             if (shareBtn) {
                 shareBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const form = document.getElementById('contactForm');
                     // Dans une implémentation réelle, ceci enverrait les données à votre serveur
                     console.log('Formulaire soumis');
                 });
