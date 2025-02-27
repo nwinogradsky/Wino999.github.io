@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
 /* Base styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'DM Sans', Arial, sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
 }
 
 html, body {
@@ -16,9 +16,9 @@ html, body {
 }
 
 body {
-    color: #666666; /* Couleur de texte uniforme */
+    color: #666666;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.2;
     position: relative;
 }
 
@@ -72,9 +72,9 @@ body {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Tous les textes centrés */
     justify-content: center;
-    text-align: center;
+    text-align: center; /* Tous les textes centrés */
     position: relative;
     padding: 40px 20px;
     transform-origin: center;
@@ -83,14 +83,16 @@ body {
 .title-block {
     margin-bottom: 40px;
     text-align: center;
+    width: 100%;
 }
 
 .services-block {
     margin-bottom: 40px;
     text-align: center;
+    width: 100%;
 }
 
-.screen.animate .content > *, 
+.screen.animate .content > *,
 .screen.animate .title-block > *,
 .screen.animate .services-block > * {
     animation: fadeUp 0.6s forwards cubic-bezier(0.19, 1, 0.22, 1);
@@ -107,15 +109,17 @@ body {
 .screen.animate .content > button { animation-delay: 0.7s; }
 .screen.animate form { animation-delay: 0.3s; }
 
-/* Typography */
-.section-title {
-    font-size: 3.8rem;
-    font-weight: 500;
-    margin-bottom: 20px;
-    position: relative;
+/* Typography - TOUS les textes de même taille */
+.section-title,
+.highlight-big,
+.service-line,
+p {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
     line-height: 1.1;
-    color: #666666; /* Gris uniforme pour tous les textes */
-    text-transform: none;
+    color: #666666;
+    letter-spacing: -0.02em;
 }
 
 .section-title:before {
@@ -125,32 +129,25 @@ body {
 
 .highlight {
     color: #e63030;
-    font-weight: 500;
-}
-
-/* Uniformisation des tailles pour les textes mis en évidence */
-.highlight-big,
-.service-line,
-#screen4 .highlight-big,
-#screen5 .highlight-big {
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-    line-height: 1.3;
+    font-weight: 800;
 }
 
 .highlight-big {
     color: #e63030;
-    font-weight: 500;
+    font-weight: 900;
 }
 
+/* Exception pour le texte du formulaire */
 .form-intro {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     color: #666666;
     margin-bottom: 30px;
-    max-width: 600px;
+    font-weight: 500;
+    align-self: center; /* Centré individuellement */
+    text-align: center;
 }
 
-/* Buttons */
+/* Boutons centrés */
 .engine-btn {
     background-color: #e63030;
     color: white;
@@ -158,17 +155,17 @@ body {
     border-radius: 50%;
     width: 120px;
     height: 120px;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 1.1rem;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 40px 0;
+    margin: 40px auto;
     box-shadow: 0 4px 15px rgba(230, 48, 48, 0.2);
-    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), 
-                box-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+    box-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     text-transform: uppercase;
     line-height: 1.3;
 }
@@ -187,45 +184,47 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-.how-btn, .go-ahead-btn {
+/* Nouveaux boutons de navigation améliorés */
+.nav-btn {
     background-color: transparent;
     color: #666666;
     border: 2px solid #e63030;
-    border-radius: 30px;
-    padding: 10px 25px;
-    font-weight: 500;
-    font-size: 1rem;
+    border-radius: 50px;
+    padding: 12px 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 30px;
     position: relative;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0 4px 10px rgba(230, 48, 48, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.how-btn:after {
+.nav-btn:after {
     content: " >";
     color: #e63030;
-    transition: color 0.3s ease;
+    font-weight: 800;
+    transition: all 0.3s ease;
 }
 
-.how-btn:hover, .go-ahead-btn:hover {
+.nav-btn:hover {
     background-color: #e63030;
     color: white;
     transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(230, 48, 48, 0.2);
 }
 
-.how-btn:hover:after {
+.nav-btn:hover:after {
     color: white;
+    transform: translateX(3px);
 }
 
-.go-ahead-btn:before {
-    content: "GO AHEAD! ";
-    color: #e63030;
-    transition: color 0.3s ease;
-}
-
-.go-ahead-btn:hover:before {
-    color: white;
+.nav-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(230, 48, 48, 0.15);
 }
 
 /* Form styles */
@@ -233,6 +232,7 @@ form {
     width: 100%;
     max-width: 600px;
     margin-top: 20px;
+    text-align: center;
 }
 
 .form-group {
@@ -264,22 +264,32 @@ textarea {
     color: white;
     border: none;
     border-radius: 30px;
-    padding: 10px 25px;
-    font-weight: 500;
-    font-size: 1rem;
+    padding: 12px 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
     cursor: pointer;
     margin-top: 20px;
-    display: block;
     margin-left: auto;
     transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0 4px 10px rgba(230, 48, 48, 0.15);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
 }
 
 .share-btn:after {
     content: " US >";
+    font-weight: 800;
 }
 
 .share-btn:hover {
     transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(230, 48, 48, 0.25);
+}
+
+.share-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(230, 48, 48, 0.2);
 }
 
 /* Animations */
@@ -300,80 +310,61 @@ textarea {
     .content {
         max-width: 1600px;
     }
-    
-    .section-title {
-        font-size: 5rem;
-    }
-    
+
+    .section-title,
     .highlight-big,
-    .service-line {
-        font-size: 2.8rem;
+    .service-line,
+    p {
+        font-size: 4rem;
     }
-    
+
     .engine-btn {
         width: 150px;
         height: 150px;
         font-size: 1.3rem;
     }
-}
 
-/* Pour grands écrans */
-@media (min-width: 1200px) and (max-width: 1799px) {
-    .section-title {
-        font-size: 4.2rem;
-    }
-    
-    .highlight-big,
-    .service-line {
-        font-size: 2.5rem;
-    }
-}
-
-/* Pour écrans moyens */
-@media (max-width: 1199px) {
-    .section-title {
-        font-size: 3.2rem;
-    }
-    
-    .highlight-big,
-    .service-line {
-        font-size: 2rem;
-    }
-    
-    .engine-btn {
-        width: 110px;
-        height: 110px;
+    .nav-btn, .share-btn {
+        font-size: 1.2rem;
+        padding: 15px 35px;
     }
 }
 
 /* Pour tablettes */
 @media (max-width: 768px) {
-    .section-title {
+    .section-title,
+    .highlight-big,
+    .service-line,
+    p {
         font-size: 2.5rem;
     }
-    
-    .highlight-big,
-    .service-line {
-        font-size: 1.8rem;
-    }
-    
+
     .logo {
         max-width: 120px;
         top: 20px;
         left: 20px;
     }
-    
+
     .engine-btn {
         width: 100px;
         height: 100px;
         font-size: 1rem;
-        margin: 30px 0;
+        margin: 30px auto;
     }
-    
+
+    .nav-btn, .share-btn {
+        font-size: 1rem;
+        padding: 10px 25px;
+    }
+
+    .form-intro {
+        font-size: 0.8rem;
+    }
+
     .title-block {
         margin-bottom: 30px;
     }
-    
+
     .services-block {
         margin-bottom: 30px;
     }
@@ -385,42 +376,40 @@ textarea {
         padding: 80px 15px 30px;
         justify-content: flex-start;
     }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
+
+    .section-title,
     .highlight-big,
-    .service-line {
-        font-size: 1.5rem;
+    .service-line,
+    p {
+        font-size: 1.8rem;
     }
-    
+
     .logo {
         max-width: 100px;
         top: 15px;
         left: 15px;
     }
-    
+
     .engine-btn {
         width: 90px;
         height: 90px;
         font-size: 0.9rem;
-        margin: 25px 0;
+        margin: 25px auto;
     }
-    
-    .how-btn, .go-ahead-btn, .share-btn {
+
+    .nav-btn, .share-btn {
         padding: 8px 20px;
         font-size: 0.9rem;
     }
-    
+
     .content {
         padding: 20px 10px;
     }
-    
+
     .title-block {
         margin-bottom: 20px;
     }
-    
+
     .services-block {
         margin-bottom: 20px;
     }
@@ -431,40 +420,45 @@ textarea {
     .screen {
         padding: 70px 15px 20px;
     }
-    
+
     .content {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        align-items: center;
     }
-    
+
     .title-block, .services-block {
         width: 100%;
         margin-bottom: 15px;
     }
-    
-    .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 10px;
-    }
-    
+
+    .section-title,
     .highlight-big,
-    .service-line {
-        font-size: 1.4rem;
+    .service-line,
+    p {
+        font-size: 1.5rem;
         margin-bottom: 5px;
     }
-    
+
+    .form-intro {
+        font-size: 0.7rem;
+    }
+
     .logo {
         max-width: 80px;
         top: 10px;
         left: 10px;
     }
-    
+
     .engine-btn {
         width: 70px;
         height: 70px;
         font-size: 0.8rem;
-        margin: 15px;
+        margin: 15px auto;
+    }
+
+    .nav-btn, .share-btn {
+        padding: 6px 15px;
+        font-size: 0.8rem;
     }
 }
