@@ -3,16 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashlean - Creative Digital Company</title>
+    <title>Dashlean - Studio Digital, Experts en Développement Web et Solutions Numériques</title>
+    <meta name="description" content="Dashlean, votre partenaire digital pour la création de sites web, applications et stratégies digitales. Studio de développement expert avec approche lean et budgets optimisés.">
+    <meta name="keywords" content="développement web, studio digital, création site internet, experts numérique, agence web, MVP, solutions digitales, développement agile">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Dashlean - Studio Digital, Experts en Développement Web">
+    <meta property="og:description" content="Studio digital spécialisé dans le développement web, stratégies digitales et solutions numériques sur mesure avec une approche lean.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dashlean.com/">
+    <link rel="canonical" href="https://dashlean.com/">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J6PJQ37KVV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-J6PJQ37KVV');
+    </script>
 </head>
 <body>
 <!-- Screen 1 -->
 <div class="screen active" id="screen1">
-    <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
+    <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo - Studio Digital Expert">
     <div class="content">
         <h1 class="section-title">Creative Digital Company</h1>
-        <button class="engine-btn" onclick="nextScreen(2)">ENGINE<br>START</button>
+        <button class="engine-btn btn" onclick="nextScreen(2)">ENGINE<br>START</button>
     </div>
 </div>
 
@@ -29,7 +46,7 @@
             <p class="service-line highlight">MVP to Scalable Product</p>
             <p class="service-line highlight">Agile Development</p>
         </div>
-        <button class="nav-btn" onclick="nextScreen(3)">NEXT</button>
+        <button class="nav-btn btn rect-btn" onclick="nextScreen(3)">NEXT</button>
     </div>
 </div>
 
@@ -46,7 +63,7 @@
             <p class="service-line">We provide <span class="highlight">Custom made Solution</span></p>
             <p class="service-line highlight">Fast Execution</p>
         </div>
-        <button class="nav-btn" onclick="nextScreen(4)">NEXT</button>
+        <button class="nav-btn btn rect-btn" onclick="nextScreen(4)">NEXT</button>
     </div>
 </div>
 
@@ -59,20 +76,20 @@
             <p class="highlight-big">To Digital Reality</p>
             <p class="form-intro">w/ our Technical Excellence & Fast Innovation Teams</p>
         </div>
-        <form id="contactForm">
+        <form id="contactForm" aria-label="Formulaire de contact">
             <div class="form-group">
-                <input type="text" id="name" placeholder="Name" required>
+                <input type="text" id="name" name="name" placeholder="Name" required aria-label="Votre nom">
             </div>
             <div class="form-group">
-                <input type="text" id="company" placeholder="Company" required>
+                <input type="text" id="company" name="company" placeholder="Company" required aria-label="Votre entreprise">
             </div>
             <div class="form-group">
-                <input type="email" id="email" placeholder="Email" required>
+                <input type="email" id="email" name="email" placeholder="Email" required aria-label="Votre email">
             </div>
             <div class="form-group">
-                <textarea id="project" placeholder="Tell us briefly about your project"></textarea>
+                <textarea id="project" name="project" placeholder="Tell us briefly about your project" aria-label="Description de votre projet"></textarea>
             </div>
-            <button type="button" class="share-btn" onclick="nextScreen(5)">SHARE W/</button>
+            <button type="button" class="share-btn btn rect-btn" onclick="nextScreen(5)">SHARE W/</button>
         </form>
     </div>
 </div>
@@ -85,7 +102,7 @@
             <h2 class="section-title">No Joke, We Work at</h2>
             <p class="highlight-big">Excellence level</p>
         </div>
-        <button class="engine-btn stop-btn" onclick="nextScreen(1)">ENGINE<br>STOP</button>
+        <button class="engine-btn stop-btn btn" onclick="nextScreen(1)">ENGINE<br>STOP</button>
     </div>
 </div>
 
@@ -107,6 +124,9 @@
             const nextScreen = document.getElementById('screen' + screenNumber);
             nextScreen.classList.add('active');
 
+            // Mise à jour de l'URL pour le référencement (URL virtuelle)
+            updateURLForSEO(screenNumber);
+
             // Ajoute une classe 'animate' pour déclencher les animations d'entrée
             nextScreen.classList.add('animate');
 
@@ -116,6 +136,79 @@
             }, 1500);
         }, 600);
     }
+
+    // Mise à jour de l'URL pour améliorer le référencement
+    function updateURLForSEO(screenNumber) {
+        let pageName = '';
+        let pageTitle = '';
+
+        switch(screenNumber) {
+            case 1:
+                pageName = 'accueil';
+                pageTitle = 'Dashlean - Studio Digital, Experts en Développement Web';
+                break;
+            case 2:
+                pageName = 'expertise-digitale';
+                pageTitle = 'Dashlean - Notre Expertise Digitale et Stratégies Numériques';
+                break;
+            case 3:
+                pageName = 'approche-lean';
+                pageTitle = 'Dashlean - Notre Approche Lean et Solutions Sur Mesure';
+                break;
+            case 4:
+                pageName = 'contact';
+                pageTitle = 'Dashlean - Contactez nos Experts en Développement Web';
+                break;
+            case 5:
+                pageName = 'excellence';
+                pageTitle = 'Dashlean - Notre Niveau d\'Excellence en Développement Web';
+                break;
+        }
+
+        // Changement de l'URL sans rechargement de page
+        if (pageName && history.pushState) {
+            history.pushState(null, pageTitle, `/${pageName}`);
+            document.title = pageTitle;
+
+            // Notification à Google Analytics du changement de page
+            if (typeof gtag === 'function') {
+                gtag('event', 'page_view', {
+                    page_title: pageTitle,
+                    page_path: `/${pageName}`
+                });
+            }
+        }
+    }
+
+    // Gestion des URL pour la navigation directe
+    window.addEventListener('popstate', function() {
+        // Extraire le numéro d'écran à partir de l'URL actuelle
+        const pathParts = window.location.pathname.split('/');
+        const pageName = pathParts[pathParts.length - 1];
+
+        let screenNumber = 1; // Par défaut, l'écran d'accueil
+
+        switch(pageName) {
+            case 'expertise-digitale':
+                screenNumber = 2;
+                break;
+            case 'approche-lean':
+                screenNumber = 3;
+                break;
+            case 'contact':
+                screenNumber = 4;
+                break;
+            case 'excellence':
+                screenNumber = 5;
+                break;
+        }
+
+        // Activer l'écran correspondant sans animation
+        document.querySelectorAll('.screen').forEach(screen => {
+            screen.classList.remove('active', 'exit', 'animate');
+        });
+        document.getElementById('screen' + screenNumber).classList.add('active');
+    });
 
     // S'assurer que le premier écran est animé au chargement
     document.addEventListener('DOMContentLoaded', function() {
@@ -131,8 +224,15 @@
                 e.preventDefault();
                 // Dans une implémentation réelle, ceci enverrait les données à votre serveur
                 console.log('Formulaire soumis');
+                gtag('event', 'form_submission', {
+                    'event_category': 'Contact',
+                    'event_label': 'Formulaire de contact'
+                });
             });
         }
+
+        // Initialiser l'URL pour la première page
+        updateURLForSEO(1);
     });
 </script>
 </body>

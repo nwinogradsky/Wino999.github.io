@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
 /* Base styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
 }
 
 html, body {
@@ -72,9 +72,9 @@ body {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Tous les textes centrés */
+    align-items: center;
     justify-content: center;
-    text-align: center; /* Tous les textes centrés */
+    text-align: center;
     position: relative;
     padding: 40px 20px;
     transform-origin: center;
@@ -143,11 +143,25 @@ p {
     color: #666666;
     margin-bottom: 30px;
     font-weight: 500;
-    align-self: center; /* Centré individuellement */
+    align-self: center;
     text-align: center;
 }
 
-/* Boutons centrés */
+/* === STYLES DE BOUTON HARMONISÉS === */
+
+/* Style de base pour tous les boutons */
+.btn {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Bouton circulaire (ENGINE) */
 .engine-btn {
     background-color: #e63030;
     color: white;
@@ -155,19 +169,14 @@ p {
     border-radius: 50%;
     width: 120px;
     height: 120px;
-    font-weight: 700;
     font-size: 1.1rem;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 40px auto;
-    box-shadow: 0 4px 15px rgba(230, 48, 48, 0.2);
-    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1),
-    box-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-    text-transform: uppercase;
     line-height: 1.3;
+    box-shadow: 0 4px 15px rgba(230, 48, 48, 0.2);
 }
 
 .engine-btn:hover {
@@ -184,25 +193,31 @@ p {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Nouveaux boutons de navigation améliorés */
-.nav-btn {
+/* Style commun pour les boutons rectangulaires (NEXT et SHARE) */
+.rect-btn {
     background-color: transparent;
     color: #666666;
     border: 2px solid #e63030;
     border-radius: 50px;
     padding: 12px 30px;
-    font-weight: 700;
     font-size: 1.1rem;
-    cursor: pointer;
     margin-top: 30px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     box-shadow: 0 4px 10px rgba(230, 48, 48, 0.1);
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
+.rect-btn:hover {
+    background-color: #e63030;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(230, 48, 48, 0.2);
+}
+
+.rect-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(230, 48, 48, 0.15);
+}
+
+/* Bouton de navigation (NEXT) */
 .nav-btn:after {
     content: " >";
     color: #e63030;
@@ -210,21 +225,26 @@ p {
     transition: all 0.3s ease;
 }
 
-.nav-btn:hover {
-    background-color: #e63030;
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(230, 48, 48, 0.2);
-}
-
 .nav-btn:hover:after {
     color: white;
     transform: translateX(3px);
 }
 
-.nav-btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(230, 48, 48, 0.15);
+/* Bouton de partage (SHARE) - même style que NEXT */
+.share-btn {
+    margin-left: auto;
+    display: block;
+}
+
+.share-btn:after {
+    content: " US >";
+    color: #e63030;
+    font-weight: 800;
+    transition: all 0.3s ease;
+}
+
+.share-btn:hover:after {
+    color: white;
 }
 
 /* Form styles */
@@ -245,6 +265,7 @@ input, textarea {
     border: 1px solid #ddd;
     border-radius: 0;
     font-size: 1rem;
+    font-family: 'Poppins', Arial, sans-serif;
     transition: border-color 0.3s ease;
     color: #666666;
 }
@@ -257,39 +278,6 @@ input:focus, textarea:focus {
 textarea {
     height: 150px;
     resize: vertical;
-}
-
-.share-btn {
-    background-color: #e63030;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    padding: 12px 30px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    cursor: pointer;
-    margin-top: 20px;
-    margin-left: auto;
-    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-    box-shadow: 0 4px 10px rgba(230, 48, 48, 0.15);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: block;
-}
-
-.share-btn:after {
-    content: " US >";
-    font-weight: 800;
-}
-
-.share-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(230, 48, 48, 0.25);
-}
-
-.share-btn:active {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(230, 48, 48, 0.2);
 }
 
 /* Animations */
@@ -324,7 +312,7 @@ textarea {
         font-size: 1.3rem;
     }
 
-    .nav-btn, .share-btn {
+    .rect-btn {
         font-size: 1.2rem;
         padding: 15px 35px;
     }
@@ -352,7 +340,7 @@ textarea {
         margin: 30px auto;
     }
 
-    .nav-btn, .share-btn {
+    .rect-btn {
         font-size: 1rem;
         padding: 10px 25px;
     }
@@ -397,7 +385,7 @@ textarea {
         margin: 25px auto;
     }
 
-    .nav-btn, .share-btn {
+    .rect-btn {
         padding: 8px 20px;
         font-size: 0.9rem;
     }
@@ -457,7 +445,7 @@ textarea {
         margin: 15px auto;
     }
 
-    .nav-btn, .share-btn {
+    .rect-btn {
         padding: 6px 15px;
         font-size: 0.8rem;
     }
