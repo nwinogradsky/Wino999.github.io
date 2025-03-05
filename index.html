@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashlean - Studio Digital, Experts en Développement Web et Solutions Numériques</title>
     <meta name="description" content="Dashlean, votre partenaire digital pour la création de sites web, applications et stratégies digitales. Studio de développement expert avec approche lean et budgets optimisés.">
@@ -33,8 +33,8 @@
     </div>
 </div>
 
-<!-- Screen 2 --> 
-<div class="screen" id="screen2"> 
+<!-- Screen 2 -->
+<div class="screen" id="screen2">
     <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
     <div class="content">
         <div class="title-block">
@@ -124,8 +124,8 @@
             const nextScreen = document.getElementById('screen' + screenNumber);
             nextScreen.classList.add('active');
 
-            // Mise à jour de l'URL pour le référencement (URL virtuelle)
-            updateURLForSEO(screenNumber);
+            // Mise à jour du titre et envoi des données à GA sans modifier l'URL
+            trackScreenView(screenNumber);
 
             // Ajoute une classe 'animate' pour déclencher les animations d'entrée
             nextScreen.classList.add('animate');
@@ -137,8 +137,8 @@
         }, 600);
     }
 
-    // Mise à jour de l'URL pour améliorer le référencement
-    function updateURLForSEO(screenNumber) {
+    // Mise à jour du titre et tracking GA sans modification d'URL
+    function trackScreenView(screenNumber) {
         let pageName = '';
         let pageTitle = '';
 
@@ -165,50 +165,18 @@
                 break;
         }
 
-        // Changement de l'URL sans rechargement de page
-        if (pageName && history.pushState) {
-            history.pushState(null, pageTitle, `/${pageName}`);
-            document.title = pageTitle;
+        // Mise à jour du titre sans modification d'URL
+        document.title = pageTitle;
 
-            // Notification à Google Analytics du changement de page
-            if (typeof gtag === 'function') {
-                gtag('event', 'page_view', {
-                    page_title: pageTitle,
-                    page_path: `/${pageName}`
-                });
-            }
+        // Notification à Google Analytics du changement de page virtuelle
+        if (typeof gtag === 'function') {
+            gtag('event', 'page_view', {
+                page_title: pageTitle,
+                page_path: '/' + pageName,
+                send_to: 'G-J6PJQ37KVV'
+            });
         }
     }
-
-    // Gestion des URL pour la navigation directe
-    window.addEventListener('popstate', function() {
-        // Extraire le numéro d'écran à partir de l'URL actuelle
-        const pathParts = window.location.pathname.split('/');
-        const pageName = pathParts[pathParts.length - 1];
-
-        let screenNumber = 1; // Par défaut, l'écran d'accueil
-
-        switch(pageName) {
-            case 'expertise-digitale':
-                screenNumber = 2;
-                break;
-            case 'approche-lean':
-                screenNumber = 3;
-                break;
-            case 'contact':
-                screenNumber = 4;
-                break;
-            case 'excellence':
-                screenNumber = 5;
-                break;
-        }
-
-        // Activer l'écran correspondant sans animation
-        document.querySelectorAll('.screen').forEach(screen => {
-            screen.classList.remove('active', 'exit', 'animate');
-        });
-        document.getElementById('screen' + screenNumber).classList.add('active');
-    });
 
     // S'assurer que le premier écran est animé au chargement
     document.addEventListener('DOMContentLoaded', function() {
@@ -226,13 +194,14 @@
                 console.log('Formulaire soumis');
                 gtag('event', 'form_submission', {
                     'event_category': 'Contact',
-                    'event_label': 'Formulaire de contact'
+                    'event_label': 'Formulaire de contact',
+                    'send_to': 'G-J6PJQ37KVV'
                 });
             });
         }
 
-        // Initialiser l'URL pour la première page
-        updateURLForSEO(1);
+        // Initialiser le premier écran sans modifier l'URL
+        trackScreenView(1);
     });
 </script>
 </body>
