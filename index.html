@@ -107,7 +107,7 @@
 </div>
 
 <script>
-    // Gestion des transitions entre écrans
+    // Fonction simplifiée pour naviguer entre les écrans sans modifier l'URL
     function nextScreen(screenNumber) {
         // Cache l'écran actuel
         const currentScreen = document.querySelector('.screen.active');
@@ -124,9 +124,6 @@
             const nextScreen = document.getElementById('screen' + screenNumber);
             nextScreen.classList.add('active');
 
-            // Mise à jour du titre et envoi des données à GA sans modifier l'URL
-            trackScreenView(screenNumber);
-
             // Ajoute une classe 'animate' pour déclencher les animations d'entrée
             nextScreen.classList.add('animate');
 
@@ -134,48 +131,14 @@
             setTimeout(() => {
                 nextScreen.classList.remove('animate');
             }, 1500);
+
+            // Notification à Google Analytics (optionnel, vous pouvez le supprimer si non nécessaire)
+            if (typeof gtag === 'function') {
+                gtag('event', 'screen_view', {
+                    'screen_name': 'Screen ' + screenNumber
+                });
+            }
         }, 600);
-    }
-
-    // Mise à jour du titre et tracking GA sans modification d'URL
-    function trackScreenView(screenNumber) {
-        let pageName = '';
-        let pageTitle = '';
-
-        switch(screenNumber) {
-            case 1:
-                pageName = 'accueil';
-                pageTitle = 'Dashlean - Studio Digital, Experts en Développement Web';
-                break;
-            case 2:
-                pageName = 'expertise-digitale';
-                pageTitle = 'Dashlean - Notre Expertise Digitale et Stratégies Numériques';
-                break;
-            case 3:
-                pageName = 'approche-lean';
-                pageTitle = 'Dashlean - Notre Approche Lean et Solutions Sur Mesure';
-                break;
-            case 4:
-                pageName = 'contact';
-                pageTitle = 'Dashlean - Contactez nos Experts en Développement Web';
-                break;
-            case 5:
-                pageName = 'excellence';
-                pageTitle = 'Dashlean - Notre Niveau d\'Excellence en Développement Web';
-                break;
-        }
-
-        // Mise à jour du titre sans modification d'URL
-        document.title = pageTitle;
-
-        // Notification à Google Analytics du changement de page virtuelle
-        if (typeof gtag === 'function') {
-            gtag('event', 'page_view', {
-                page_title: pageTitle,
-                page_path: '/' + pageName,
-                send_to: 'G-J6PJQ37KVV'
-            });
-        }
     }
 
     // S'assurer que le premier écran est animé au chargement
@@ -192,16 +155,8 @@
                 e.preventDefault();
                 // Dans une implémentation réelle, ceci enverrait les données à votre serveur
                 console.log('Formulaire soumis');
-                gtag('event', 'form_submission', {
-                    'event_category': 'Contact',
-                    'event_label': 'Formulaire de contact',
-                    'send_to': 'G-J6PJQ37KVV'
-                });
             });
         }
-
-        // Initialiser le premier écran sans modifier l'URL
-        trackScreenView(1);
     });
 </script>
 </body>
