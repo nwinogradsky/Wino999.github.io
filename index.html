@@ -153,8 +153,21 @@
         if (shareBtn) {
             shareBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-                // Dans une implémentation réelle, ceci enverrait les données à votre serveur
-                console.log('Formulaire soumis');
+                gtag('event', 'form_submit', {
+                    'event_category': 'Formulaire Contact',
+                    'event_label': 'Formulaire partagé',
+                    'screen_name': 'Screen 4'
+                });
+                ['name', 'company', 'email', 'project'].forEach(id => {
+                    const input = document.getElementById(id);
+                    input.addEventListener('blur', () => {
+                        gtag('event', 'field_filled', {
+                            'event_category': 'Formulaire Contact',
+                            'event_label': id,
+                            'screen_name': 'Screen 4'
+                        });
+                    });
+                });
             });
         }
     });
