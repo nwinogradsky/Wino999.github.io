@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashlean - Studio Digital, Experts en Développement Web et Solutions Numériques</title>
-    <meta name="description" content="Dashlean, votre partenaire digital pour la création de sites web, applications et stratégies digitales. Studio de développement expert avec approche lean et budgets optimisés.">
-    <meta name="keywords" content="développement web, studio digital, création site internet, experts numérique, agence web, MVP, solutions digitales, développement agile">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Dashlean - Studio Digital, Experts en Développement Web">
-    <meta property="og:description" content="Studio digital spécialisé dans le développement web, stratégies digitales et solutions numériques sur mesure avec une approche lean.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dashlean.com/">
-    <link rel="canonical" href="https://dashlean.com/">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Dashlean, votre partenaire digital pour la création de sites web, applications et stratégies digitales. Studio de développement expert avec approche lean et budgets optimisés." />
+    <meta name="keywords" content="développement web, studio digital, création site internet, experts numérique, agence web, MVP, solutions digitales, développement agile" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Dashlean - Studio Digital, Experts en Développement Web" />
+    <meta property="og:description" content="Studio digital spécialisé dans le développement web, stratégies digitales et solutions numériques sur mesure avec une approche lean." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dashlean.com/" />
+    <link rel="canonical" href="https://dashlean.com/" />
+    <link rel="stylesheet" href="style.css" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J6PJQ37KVV"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-J6PJQ37KVV');
     </script>
 </head>
 <body>
+
 <!-- Screen 1 -->
 <div class="screen active" id="screen1">
-    <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo - Studio Digital Expert">
+    <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo - Studio Digital Expert" />
     <div class="content">
         <h1 class="section-title">Creative Digital Company</h1>
-        <button class="engine-btn btn" onclick="nextScreen(2)">ENGINE<br>START</button>
+        <button class="engine-btn btn" onclick="nextScreen(2)">ENGINE<br />START</button>
     </div>
 </div>
 
 <!-- Screen 2 -->
 <div class="screen" id="screen2">
-    <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
+    <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo" />
     <div class="content">
         <div class="title-block">
             <h2 class="section-title">We are a Network Of</h2>
@@ -52,7 +53,7 @@
 
 <!-- Screen 3 -->
 <div class="screen" id="screen3">
-    <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
+    <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo" />
     <div class="content">
         <div class="title-block">
             <h2 class="section-title">W/ our Lean Approach</h2>
@@ -69,7 +70,7 @@
 
 <!-- Screen 4 -->
 <div class="screen" id="screen4">
-    <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
+    <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo" />
     <div class="content">
         <div class="title-block">
             <h2 class="section-title">Your Ideas Start Here</h2>
@@ -78,61 +79,79 @@
         </div>
         <form id="contactForm" aria-label="Formulaire de contact">
             <div class="form-group">
-                <input type="text" id="name" name="name" placeholder="Name" required aria-label="Votre nom">
+                <input type="text" id="name" name="name" placeholder="Name" required aria-label="Votre nom" />
             </div>
             <div class="form-group">
-                <input type="text" id="company" name="company" placeholder="Company" required aria-label="Votre entreprise">
+                <input type="text" id="company" name="company" placeholder="Company" required aria-label="Votre entreprise" />
             </div>
             <div class="form-group">
-                <input type="email" id="email" name="email" placeholder="Email" required aria-label="Votre email">
+                <input type="email" id="email" name="email" placeholder="Email" required aria-label="Votre email" />
             </div>
             <div class="form-group">
                 <textarea id="project" name="project" placeholder="Tell us briefly about your project" aria-label="Description de votre projet"></textarea>
             </div>
-            <button type="button" class="share-btn btn rect-btn" onclick="nextScreen(5)">SHARE W/</button>
+            <button type="submit" class="share-btn btn rect-btn">SHARE W/</button>
         </form>
     </div>
 </div>
 
 <!-- Screen 5 -->
 <div class="screen" id="screen5">
-    <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo">
+    <img class="logo" src="dashlean-logo.svg" alt="Dashlean Logo" />
     <div class="content">
         <div class="title-block">
             <h2 class="section-title">No Joke, We Work at</h2>
             <p class="highlight-big">Excellence level</p>
         </div>
-        <button class="engine-btn stop-btn btn" onclick="nextScreen(1)">ENGINE<br>STOP</button>
+        <button class="engine-btn stop-btn btn" onclick="nextScreen(1)">ENGINE<br />STOP</button>
     </div>
 </div>
 
 <script>
-    // Fonction simplifiée pour naviguer entre les écrans sans modifier l'URL
+    // Form submission to Google Sheets
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const data = {
+            name: form.name.value,
+            company: form.company.value,
+            email: form.email.value,
+            project: form.project.value
+        };
+
+        fetch("https://script.google.com/macros/s/AKfycbzduZXNpR_LvkZpiHHF-uZPk-Dtd87mpZ3KNQjGPX98ysJ4mNvYBbb8ctY8OMM_yS1X/exec", {
+            method: "POST",
+            body: JSON.stringify(data)
+        })
+            .then(res => {
+                if (res.ok) {
+                    form.reset();
+                    nextScreen(5);
+                } else {
+                    alert("Erreur lors de l'envoi.");
+                }
+            });
+    });
+
+    // Navigation logique entre les écrans
     function nextScreen(screenNumber) {
-        // Cache l'écran actuel
         const currentScreen = document.querySelector('.screen.active');
         currentScreen.classList.add('exit');
 
-        // Montre le nouvel écran après un délai
         setTimeout(() => {
-            // Réinitialise tous les écrans
             document.querySelectorAll('.screen').forEach(screen => {
                 screen.classList.remove('active', 'exit');
             });
 
-            // Active le nouvel écran
             const nextScreen = document.getElementById('screen' + screenNumber);
             nextScreen.classList.add('active');
-
-            // Ajoute une classe 'animate' pour déclencher les animations d'entrée
             nextScreen.classList.add('animate');
 
-            // Retire la classe 'animate' après la fin des animations
             setTimeout(() => {
                 nextScreen.classList.remove('animate');
             }, 1500);
 
-            // Notification à Google Analytics (optionnel, vous pouvez le supprimer si non nécessaire)
             if (typeof gtag === 'function') {
                 gtag('event', 'screen_view', {
                     'screen_name': 'Screen ' + screenNumber
@@ -141,35 +160,11 @@
         }, 600);
     }
 
-    // S'assurer que le premier écran est animé au chargement
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('screen1').classList.add('animate');
         setTimeout(() => {
             document.getElementById('screen1').classList.remove('animate');
         }, 1500);
-
-        // Gestion du formulaire (simulation)
-        const shareBtn = document.querySelector('.share-btn');
-        if (shareBtn) {
-            shareBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                gtag('event', 'form_submit', {
-                    'event_category': 'Formulaire Contact',
-                    'event_label': 'Formulaire partagé',
-                    'screen_name': 'Screen 4'
-                });
-                ['name', 'company', 'email', 'project'].forEach(id => {
-                    const input = document.getElementById(id);
-                    input.addEventListener('blur', () => {
-                        gtag('event', 'field_filled', {
-                            'event_category': 'Formulaire Contact',
-                            'event_label': id,
-                            'screen_name': 'Screen 4'
-                        });
-                    });
-                });
-            });
-        }
     });
 </script>
 </body>
